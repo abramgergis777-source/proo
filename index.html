@@ -3,332 +3,407 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <!-- Change this title to your name -->
-  <title>Ahmed Portfolio</title>
-
+  <title>Abram Gergis — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link rel="stylesheet" href="./main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Custom Cursor -->
-  <div class="cursor-dot"></div>
-  <div class="cursor-ring"></div>
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+<canvas id="particles-canvas"></canvas>
 
-  <!-- Particles Background -->
-  <canvas id="particles-canvas"></canvas>
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-logo"><span class="logo-letter">A</span></div>
+  <ul class="nav-links">
+    <li><a href="#hero" class="nav-link active">Home</a></li>
+    <li><a href="#about" class="nav-link">About</a></li>
+    <li><a href="#skills" class="nav-link">Skills</a></li>
+    <li><a href="#projects" class="nav-link">Projects</a></li>
+    <li><a href="#contact" class="nav-link">Contact</a></li>
+  </ul>
+  <button class="menu-btn" id="menuBtn"><span></span><span></span><span></span></button>
+</nav>
 
-  <!-- ================= NAVBAR ================= -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-logo">
-      <!-- Change to first letter of your name -->
-      <span class="logo-letter">A</span>
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#hero" class="mob-link">Home</a></li>
+    <li><a href="#about" class="mob-link">About</a></li>
+    <li><a href="#skills" class="mob-link">Skills</a></li>
+    <li><a href="#projects" class="mob-link">Projects</a></li>
+    <li><a href="#contact" class="mob-link">Contact</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <div class="hero-image-wrapper">
+      <div class="hero-image-glow"></div>
+      <div class="hero-image-border">
+        <img src="./photo_2025-10-31_21-53-48.jpg" alt="Abram Gergis" class="hero-photo" id="heroPhoto"
+             onerror="this.style.display='none'; document.getElementById('photoPlaceholder').style.display='flex'"/>
+        <div class="hero-photo-placeholder" id="photoPlaceholder"><span>A</span></div>
+      </div>
+      <div class="hero-badge"><span class="badge-dot"></span>Available for work</div>
     </div>
-
-    <ul class="nav-links">
-      <li><a href="#hero" class="nav-link active">Home</a></li>
-      <li><a href="#about" class="nav-link">About</a></li>
-      <li><a href="#skills" class="nav-link">Skills</a></li>
-      <li><a href="#projects" class="nav-link">Projects</a></li>
-      <li><a href="#contact" class="nav-link">Contact</a></li>
-    </ul>
-
-    <button class="menu-btn" id="menuBtn">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <ul>
-      <li><a href="#hero" class="mob-link">Home</a></li>
-      <li><a href="#about" class="mob-link">About</a></li>
-      <li><a href="#skills" class="mob-link">Skills</a></li>
-      <li><a href="#projects" class="mob-link">Projects</a></li>
-      <li><a href="#contact" class="mob-link">Contact</a></li>
-    </ul>
+    <div class="hero-text">
+      <p class="hero-greeting">Hello, I'm 👋</p>
+      <h1 class="hero-name">Abram Gergis Milad</h1>
+      <div class="hero-title-wrapper">
+        <span class="hero-title-prefix">I am a </span>
+        <span class="hero-title-rotate" id="titleRotate">Data Engineer</span>
+      </div>
+      <p class="hero-desc">
+        I build robust data pipelines, transform raw data into actionable insights,
+        and architect scalable solutions that power intelligent decision-making.
+      </p>
+      <div class="hero-btns">
+        <a href="cv.pdf" class="btn-primary" download>Download CV</a>
+        <a href="#projects" class="btn-secondary">View Projects</a>
+      </div>
+    </div>
   </div>
 
-  <!-- ================= HERO ================= -->
-  <section class="hero" id="hero">
+  <div class="hero-stats">
+    <div class="stat-item">
+      <span class="stat-num" data-target="3">0</span><span class="stat-plus">+</span>
+      <span class="stat-label">Years Experience</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="50">0</span><span class="stat-plus">+</span>
+      <span class="stat-label">Projects Completed</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="30">0</span><span class="stat-plus">+</span>
+      <span class="stat-label">Happy Clients</span>
+    </div>
+  </div>
+</section>
 
-    <div class="hero-content">
-
-      <!-- Your Profile Image -->
-      <div class="hero-image-wrapper">
-
-        <div class="hero-image-glow"></div>
-
-        <div class="hero-image-border">
-
-          <img src="./photo_2025-10-31_21-53-48.jpg"
-               alt="My Photo"
-               class="hero-photo"
-               id="heroPhoto"
-               onerror="this.style.display='none'; document.getElementById('photoPlaceholder').style.display='flex'"/>
-
-          <div class="hero-photo-placeholder" id="photoPlaceholder">
-            <span>A</span>
-          </div>
-
-        </div>
-
-        <div class="hero-badge">
-          <span class="badge-dot"></span>
-          Available for work
-        </div>
-
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-header">
+    <span class="section-tag">Get to know me</span>
+    <h2 class="section-title">About Me</h2>
+  </div>
+  <div class="about-grid reveal">
+    <div class="about-image-col">
+      <div class="about-img-frame">
+        <img src="./photo_2025-10-31_21-53-48.jpg" alt="Abram Gergis" class="about-photo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
+        <div class="about-photo-placeholder"><span>A</span></div>
+        <div class="about-img-decor"></div>
+        <div class="about-exp-badge"><strong>3+</strong><small>Years Experience</small></div>
       </div>
-
-      <div class="hero-text">
-
-        <p class="hero-greeting">Hello, I'm 👋</p>
-
-        <h1 class="hero-name">Abram Gergis Milad</h1>
-
-        <div class="hero-title-wrapper">
-          <span class="hero-title-prefix">I am </span>
-          <span class="hero-title-rotate" id="titleRotate">Frontend Developer</span>
+    </div>
+    <div class="about-text-col">
+      <h3 class="about-subtitle">Data Engineer & Analytical Problem Solver</h3>
+      <p class="about-para">
+        I am a passionate Data Engineer who loves turning complex data into clean, scalable systems.
+        I started my journey in <strong>2021</strong> and have been continuously sharpening my skills
+        in data pipelines, analytics, and engineering.
+      </p>
+      <p class="about-para">
+        I believe great data engineering is both an art and a science — reliable, efficient, and elegant.
+        I strive for the perfect balance between technical performance and real-world impact.
+      </p>
+      <div class="about-info-grid">
+        <div class="info-item">
+          <span class="info-label">Name</span>
+          <span class="info-value">Abram Gergis Milad</span>
         </div>
+        <div class="info-item">
+          <span class="info-label">Email</span>
+          <span class="info-value">your@email.com</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Location</span>
+          <span class="info-value">Cairo, Egypt</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Status</span>
+          <span class="info-value available">Available for work ✅</span>
+        </div>
+      </div>
+      <a href="#contact" class="btn-primary">Contact Me</a>
+    </div>
+  </div>
+</section>
 
-        <p class="hero-desc">
-          I craft exceptional digital experiences that combine visual beauty with high performance.
-          My passion is transforming complex ideas into simple and elegant interfaces.
+<!-- SKILLS -->
+<section class="skills" id="skills">
+  <div class="section-header">
+    <span class="section-tag">What I Do</span>
+    <h2 class="section-title">Skills</h2>
+  </div>
+
+  <div class="skills-tabs">
+    <button class="tab-btn active" data-tab="data">Data</button>
+    <button class="tab-btn" data-tab="backend">Backend</button>
+    <button class="tab-btn" data-tab="tools">Tools</button>
+  </div>
+
+  <!-- Data Tab -->
+  <div class="skills-content active" id="tab-data">
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <span class="skill-icon">🐍</span>
+        <span class="skill-name">Python</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+        <span class="skill-percent">92%</span>
+      </div>
+      <div class="skill-card reveal">
+        <span class="skill-icon">🐼</span>
+        <span class="skill-name">Pandas</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+        <span class="skill-percent">88%</span>
+      </div>
+      <div class="skill-card reveal">
+        <span class="skill-icon">🔢</span>
+        <span class="skill-name">NumPy</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+        <span class="skill-percent">85%</span>
+      </div>
+      <div class="skill-card reveal">
+        <span class="skill-icon">📊</span>
+        <span class="skill-name">Matplotlib</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+        <span class="skill-percent">80%</span>
+      </div>
+      <div class="skill-card reveal">
+        <span class="skill-icon">🗄️</span>
+        <span class="skill-name">SQL</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="87"></div></div>
+        <span class="skill-percent">87%</span>
+      </div>
+      <div class="skill-card reveal">
+        <span class="skill-icon">📈</span>
+        <span class="skill-name">Data Analysis</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+        <span class="skill-percent">85%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Backend Tab -->
+  <div class="skills-content" id="tab-backend">
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <span class="skill-icon">☁️</span>
+        <span class="skill-name">Cloud Basics</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+        <span class="skill-percent">70%</span>
+      </div>
+      <div class="skill-card reveal">
+        <span class="skill-icon">🗃️</span>
+        <span class="skill-name">Databases</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+        <span class="skill-percent">82%</span>
+      </div>
+      <div class="skill-card reveal">
+        <span class="skill-icon">🔁</span>
+        <span class="skill-name">ETL Pipelines</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+        <span class="skill-percent">78%</span>
+      </div>
+      <div class="skill-card reveal">
+        <span class="skill-icon">⚙️</span>
+        <span class="skill-name">Data Modeling</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+        <span class="skill-percent">75%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tools Tab -->
+  <div class="skills-content" id="tab-tools">
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <span class="skill-icon">💻</span>
+        <span class="skill-name">VS Code</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+        <span class="skill-percent">95%</span>
+      </div>
+      <div class="skill-card reveal">
+        <span class="skill-icon">📓</span>
+        <span class="skill-name">Jupyter Notebook</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+        <span class="skill-percent">90%</span>
+      </div>
+      <div class="skill-card reveal">
+        <span class="skill-icon">☕</span>
+        <span class="skill-name">NetBeans</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="72"></div></div>
+        <span class="skill-percent">72%</span>
+      </div>
+      <div class="skill-card reveal">
+        <span class="skill-icon">🐙</span>
+        <span class="skill-name">Git &amp; GitHub</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+        <span class="skill-percent">80%</span>
+      </div>
+      <div class="skill-card reveal">
+        <span class="skill-icon">🐧</span>
+        <span class="skill-name">Linux / Terminal</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+        <span class="skill-percent">75%</span>
+      </div>
+      <div class="skill-card reveal">
+        <span class="skill-icon">📊</span>
+        <span class="skill-name">Power BI / Tableau</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="68"></div></div>
+        <span class="skill-percent">68%</span>
+      </div>
+      <div class="skill-card reveal">
+        <span class="skill-icon">🎨</span>
+        <span class="skill-name">HTML &amp; CSS</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+        <span class="skill-percent">82%</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="section-header">
+    <span class="section-tag">My Work</span>
+    <h2 class="section-title">Projects</h2>
+  </div>
+
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <div class="project-img-wrap">
+        <div class="project-img-placeholder">🔐</div>
+        <div class="project-overlay">
+          <button class="proj-btn" onclick="openModal('safeLock')">View Details</button>
+          <a class="proj-btn proj-btn-outline" href="https://www.linkedin.com/feed/update/urn:li:activity:7408589813819457536/" target="_blank" rel="noopener noreferrer">LinkedIn Post</a>
+        </div>
+      </div>
+      <div class="project-info">
+        <h3 class="project-title">Digital Safe Lock System</h3>
+        <p class="project-desc">
+          A hardware-level digital security system built with logic gates and binary password protection.
+          Features a 3-strike lockout mechanism, seven-segment display, and even/odd detection logic.
         </p>
-
-        <div class="hero-btns">
-
-          <a href="cv.pdf" class="btn-primary" download>
-            Download CV
-          </a>
-
-          <a href="#projects" class="btn-secondary">
-            View Projects
-          </a>
-
+        <div class="project-tags">
+          <span>Digital Logic</span>
+          <span>XOR Gates</span>
+          <span>Counters</span>
+          <span>7-Seg Display</span>
+          <span>Hardware Design</span>
         </div>
-
       </div>
-
     </div>
+  </div>
+</section>
 
-    <!-- Stats -->
-
-    <div class="hero-stats">
-
-      <div class="stat-item">
-        <span class="stat-num" data-target="3">0</span>
-        <span class="stat-plus">+</span>
-        <span class="stat-label">Years Experience</span>
-      </div>
-
-      <div class="stat-divider"></div>
-
-      <div class="stat-item">
-        <span class="stat-num" data-target="50">0</span>
-        <span class="stat-plus">+</span>
-        <span class="stat-label">Projects Completed</span>
-      </div>
-
-      <div class="stat-divider"></div>
-
-      <div class="stat-item">
-        <span class="stat-num" data-target="30">0</span>
-        <span class="stat-plus">+</span>
-        <span class="stat-label">Happy Clients</span>
-      </div>
-
+<!-- PROJECT MODAL -->
+<div class="modal-overlay" id="modal-safeLock">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('safeLock')">✕</button>
+    <div class="modal-header">
+      <h2 class="modal-title">🔐 Digital Safe Lock System</h2>
+      <p class="modal-subtitle">Digital Logic Design Project</p>
     </div>
-
-  </section>
-
-  <!-- ================= ABOUT ================= -->
-
-  <section class="about" id="about">
-
-    <div class="section-header">
-
-      <span class="section-tag">Get to know me</span>
-      <h2 class="section-title">About Me</h2>
-
+    <div class="modal-body">
+      <p>
+        A complete digital safe lock system designed using fundamental digital logic components and logic gates.
+        The system is based on a <strong style="color:var(--gold)">4-digit binary password</strong> with
+        intelligent access control.
+      </p>
+      <p>
+        A correct password grants full access to the system. An incorrect entry increments an error counter,
+        and after <strong style="color:var(--gold)">3 consecutive wrong attempts</strong>, the system triggers
+        a full lock and stops responding until manually reset.
+      </p>
+      <div class="modal-section-title">Key Features</div>
+      <div class="project-tags" style="margin-bottom:1rem">
+        <span>XOR Comparison Logic</span>
+        <span>Counters &amp; Lock Mechanism</span>
+        <span>Even / Odd Detection (LSB)</span>
+        <span>Seven Segment Displays</span>
+        <span>Password Hiding</span>
+      </div>
+      <div class="modal-section-title">Supervisors &amp; Mentors</div>
+      <div class="modal-thanks">
+        <span>🔹 Dr. Ammar Mostafa</span>
+        <span>🔹 Eng. Hadeel Saleh</span>
+        <span>🔹 Eng. Amr Ashraf</span>
+        <span>🔹 Eng. Mohamed Salah</span>
+      </div>
+      <div class="modal-section-title">Team Members</div>
+      <div class="modal-team">
+        <span>Mohamed Ali</span>
+        <span>Gorge Hany</span>
+        <span>Abram Gergis</span>
+        <span>Fady Mosa</span>
+        <span>Amonus Waheb</span>
+      </div>
+      <div class="modal-section-title">Project Link</div>
+      <a href="https://www.linkedin.com/feed/update/urn:li:activity:7408589813819457536/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display:inline-flex; margin-top:0.5rem; text-decoration:none;">
+        🔗 View on LinkedIn
+      </a>
     </div>
+  </div>
+</div>
 
-    <div class="about-grid">
-
-      <div class="about-image-col">
-
-        <div class="about-img-frame">
-
-          <img src="./photo_2025-10-31_21-53-48.jpg"
-               alt="My Photo"
-               class="about-photo"
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
-
-          <div class="about-photo-placeholder">
-            <span>A</span>
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-header">
+    <span class="section-tag">Let's Talk</span>
+    <h2 class="section-title">Contact Me</h2>
+  </div>
+  <div class="contact-grid reveal">
+    <div class="contact-info">
+      <p class="contact-intro">
+        Have a data project in mind or want to collaborate?
+        Feel free to reach out and I'll get back to you as soon as possible.
+      </p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div>
+            <span class="contact-label">Email</span>
+            <a href="mailto:your@email.com" class="contact-val">your@email.com</a>
           </div>
-
-          <div class="about-img-decor"></div>
-
-          <div class="about-exp-badge">
-            <strong>3+</strong>
-            <small>Years Experience</small>
-          </div>
-
         </div>
-
-      </div>
-
-      <div class="about-text-col">
-
-        <h3 class="about-subtitle">
-          Creative Frontend Developer & Digital Designer
-        </h3>
-
-        <p class="about-para">
-          I am a passionate Frontend Developer who loves creating exceptional digital experiences.
-          I started my programming journey in <strong>2021</strong> and have been continuously improving
-          my skills in web development and design.
-        </p>
-
-        <p class="about-para">
-          I believe that good code should not only work correctly but also be clean and scalable.
-          I always strive to find the perfect balance between visual beauty and technical performance.
-        </p>
-
-        <div class="about-info-grid">
-
-          <div class="info-item">
-            <span class="info-label">Abram Gergis Milad</span>
-            <span class="info-value">Abram Gergis Milad</span>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div>
+            <span class="contact-label">WhatsApp</span>
+            <a href="https://wa.me/201229449756" target="_blank" class="contact-val">+20 1229449756</a>
           </div>
-
-          <div class="info-item">
-            <span class="info-label">Email</span>
-            <span class="info-value">your@email.com</span>
-          </div>
-
-          <div class="info-item">
-            <span class="info-label">Location</span>
-            <span class="info-value">القاهرة، مصر</span>
-          </div>
-
-          <div class="info-item">
-            <span class="info-label">Status</span>
-            <span class="info-value available">Available for work ✅</span>
-          </div>
-
         </div>
-
-        <a href="#contact" class="btn-primary">
-          Contact Me
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- ================= SKILLS ================= -->
-
-  <section class="skills" id="skills">
-
-    <div class="section-header">
-      <span class="section-tag">What I Do</span>
-      <h2 class="section-title">Skills</h2>
-    </div>
-
-    <div class="skills-tabs">
-      <button class="tab-btn active" data-tab="frontend">Frontend</button>
-      <button class="tab-btn" data-tab="backend">Backend</button>
-      <button class="tab-btn" data-tab="tools">Tools</button>
-    </div>
-
-  </section>
-
-  <!-- ================= PROJECTS ================= -->
-
-  <section class="projects" id="projects">
-
-    <div class="section-header">
-      <span class="section-tag">My Work</span>
-      <h2 class="section-title">Projects</h2>
-    </div>
-
-  </section>
-
-  <!-- ================= CONTACT ================= -->
-
-  <section class="contact" id="contact">
-
-    <div class="section-header">
-      <span class="section-tag">Let's Talk</span>
-      <h2 class="section-title">Contact Me</h2>
-    </div>
-
-    <div class="contact-grid">
-
-      <div class="contact-info">
-
-        <p class="contact-intro">
-          Do you have a project in mind or want to collaborate with me?
-          Feel free to reach out and I will get back to you as soon as possible.
-        </p>
-
-        <div class="contact-items">
-
-          <div class="contact-item">
-
-            <div class="contact-icon">📧</div>
-
-            <div>
-              <span class="contact-label">Email</span>
-              <a href="mailto:your@email.com"
-                 class="contact-val">
-                 your@email.com
-              </a>
-            </div>
-
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <span class="contact-label">Location</span>
+            <span class="contact-val">Cairo, Egypt</span>
           </div>
-
-          <div class="contact-item">
-
-            <div class="contact-icon">📱</div>
-
-            <div>
-              <span class="contact-label">WhatsApp</span>
-
-              <a href="https://wa.me/20XXXXXXXXXX"
-                 target="_blank"
-                 class="contact-val">
-                 +20 1229449756
-              </a>
-
-            </div>
-
-          </div>
-
-          <div class="contact-item">
-
-            <div class="contact-icon">📍</div>
-
-            <div>
-              <span class="contact-label">Location</span>
-              <span class="contact-val">القاهرة، مصر</span>
-            </div>
-
-          </div>
-
         </div>
-
       </div>
-
     </div>
+  </div>
+</section>
 
-  </section>
-<script src="./st.js"></script>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo"><span class="logo-letter">A</span></div>
+    <p class="footer-text">Abram Gergis Milad — Data Engineer</p>
+    <p class="footer-copy">© <span id="year"></span> All rights reserved.</p>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop">↑</button>
+
+<script src="script.js"></script>
 </body>
 </html>
